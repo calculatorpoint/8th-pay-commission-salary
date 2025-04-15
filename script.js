@@ -1,63 +1,27 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  margin: 0;
-  padding: 20px;
-}
+function calculateSalary() {
+  const payLevel = document.getElementById('payLevel').value;
+  const basicPay = parseFloat(document.getElementById('basicPay').value);
+  const fitment = parseFloat(document.getElementById('fitment').value);
+  const hraPercent = parseFloat(document.getElementById('hra').value);
+  const ta = parseFloat(document.getElementById('ta').value);
+  const daPercent = parseFloat(document.getElementById('da').value);
 
-.container {
-  max-width: 600px;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+  if (!payLevel || !basicPay || !fitment) {
+    alert("Please fill in all required fields.");
+    return;
+  }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #1c355e;
-}
+  const revisedBasic = basicPay * fitment;
+  const hra = revisedBasic * hraPercent;
+  const da = revisedBasic * (daPercent / 100);
+  const grossSalary = revisedBasic + hra + da + ta;
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: bold;
-}
-
-input[type="number"], select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #1c355e;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.result {
-  margin-top: 20px;
-  padding: 15px;
-  background: #e7f3ff;
-  border-left: 4px solid #1c355e;
-  font-weight: bold;
-}
-
-footer {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
+  document.getElementById('result').innerHTML = `
+    <p>🧮 <strong>Estimated Revised Basic Pay:</strong> ₹${revisedBasic.toFixed(2)}</p>
+    <p>🏠 <strong>HRA:</strong> ₹${hra.toFixed(2)}</p>
+    <p>🧾 <strong>DA:</strong> ₹${da.toFixed(2)}</p>
+    <p>🚕 <strong>TA:</strong> ₹${ta.toFixed(2)}</p>
+    <hr>
+    <p>💰 <strong>Total Estimated Salary:</strong> ₹${grossSalary.toFixed(2)}</p>
+  `;
 }
