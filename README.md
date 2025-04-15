@@ -35,7 +35,7 @@ This tool provides an **estimated** salary and is based on a tentative fitment f
 
 ## 🌐 Live Website
 
-Coming soon on [CalculatorPoint.com](https://calculatorpoint.com)
+[CalculatorPoint.com](https://calculatorpoint.com)
 
 ---
 
