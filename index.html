@@ -1,208 +1,74 @@
-<div class="pay-calculator-container v2"> <!-- Using v2 class for base styles -->
-    <h2>8th Pay Commission Salary Calculator</h2>
-    <p class="disclaimer">Hypothetical calculator assuming 8th CPC from Jan 2026. Uses New Tax Regime (FY:2025-26 assumption). Actual figures/slabs may vary.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8th Pay Commission Salary Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>8th Pay Commission Salary Calculator</h1>
 
-    <form id="payCalcFormV3">
-        <div class="form-grid">
-            <!-- Pay Level -->
-            <div class="form-group">
-                <label for="payLevelV3">Select Pay Level (GP/AGP):</label>
-                <select id="payLevelV3" required>
-                    <option value="">-- Select Level --</option>
-                    <option value="level-1" data-gp="1800">Level 1 (GP 1800)</option>
-                    <option value="level-2" data-gp="1900">Level 2 (GP 1900)</option>
-                    <option value="level-3" data-gp="2000">Level 3 (GP 2000)</option>
-                    <option value="level-4" data-gp="2400">Level 4 (GP 2400)</option>
-                    <option value="level-5" data-gp="2800">Level 5 (GP 2800)</option>
-                    <option value="level-6" data-gp="4200">Level 6 (GP 4200)</option>
-                    <option value="level-7" data-gp="4600">Level 7 (GP 4600)</option>
-                    <option value="level-8" data-gp="4800">Level 8 (GP 4800)</option>
-                    <option value="level-9" data-gp="5400">Level 9 (GP 5400)</option>
-                    <option value="level-10" data-gp="5400">Level 10 (GP 5400)</option>
-                    <option value="agp-10" data-agp="6000">Level AGP 10 (AGP 6000)</option>
-                    <option value="level-11" data-gp="6600">Level 11 (GP 6600)</option>
-                    <option value="agp-11" data-agp="7000">Level AGP 11 (AGP 7000)</option>
-                    <option value="level-12" data-gp="7600">Level 12 (GP 7600)</option>
-                    <option value="agp-12-iit" data-agp="8000">Level AGP 12 IIT/NIT (AGP 8000)</option>
-                    <option value="agp-12-ugc" data-agp="8000">Level AGP 12 UGC (AGP 8000)</option>
-                    <option value="level-13" data-gp="8700">Level 13 (GP 8700)</option>
-                    <option value="level-13a" data-gp="8900">Level 13A (GP 8900)</option>
-                    <option value="agp-13a1" data-agp="9000">Level AGP 13 A/A1 (AGP 9000)</option>
-                    <option value="agp-13a2" data-agp="9500">Level AGP 13A2 (AGP 9500)</option>
-                    <option value="level-14" data-gp="10000">Level 14 (GP 10000)</option>
-                    <option value="agp-14" data-agp="10000">Level AGP 14 (AGP 10000)</option>
-                    <option value="agp-14a" data-agp="10500">Level AGP 14A (AGP 10500)</option>
-                    <option value="agp-15" data-agp="HAG">Level AGP 15 (HAG)</option>
-                </select>
-            </div>
-
-            <!-- Current Basic Pay -->
-            <div class="form-group">
-                <label for="currentBasicPayV3">Enter Current Basic Pay (7th CPC):</label>
-                <input type="number" id="currentBasicPayV3" required min="18000" step="100" placeholder="e.g., 50500">
-                <small>Your current Basic Pay in the selected Level.</small>
-            </div>
-
-            <!-- Fitment Factor -->
-            <div class="form-group">
-                <label for="fitmentFactorV3">Fitment Factor (Tentative):</label>
-                <select id="fitmentFactorV3" required>
-                    <option value="2.86">2.86 (Recommended)</option>
-                    <option value="1.92">1.92</option>
-                    <option value="2.08">2.08</option>
-                    <option value="2.28">2.28</option>
-                    <option value="3.00">3.00</option>
-                    <option value="3.15">3.15</option>
-                    <option value="3.68">3.68</option>
-                </select>
-            </div>
-
-            <!-- HRA City Type -->
-            <div class="form-group">
-                <label for="hraCityTypeV3">City Type for HRA:</label>
-                <select id="hraCityTypeV3" required>
-                    <option value="0">No HRA</option>
-                    <option value="0.30">X City (30%)</option>
-                    <option value="0.20">Y City (20%)</option>
-                    <option value="0.10">Z City (10%)</option>
-                    <option value="0.27">X City (27%)</option>
-                    <option value="0.18">Y City (18%)</option>
-                    <option value="0.09">Z City (09%)</option>
-                    <option value="0.24">X City (24%)</option>
-                    <option value="0.16">Y City (16%)</option>
-                    <option value="0.08">Z City (08%)</option>
-                </select>
-                 <small>HRA % applied on Revised Basic Pay.</small>
-            </div>
-
-            <!-- TA City Type -->
-             <div class="form-group">
-                <label for="taCityTypeV3">City Type for TA:</label>
-                <select id="taCityTypeV3" required>
-                    <option value="no_ta">No TA</option>
-                    <option value="higher">Higher TPTA Cities</option>
-                    <option value="other">Other Cities</option>
-                </select>
-                 <small>Determines base TA amount.</small>
-            </div>
-
-             <!-- DA Percentage -->
-            <div class="form-group">
-                <label for="daRateV3">Assumed DA Percentage:</label>
-                <input type="number" id="daRateV3" value="0" min="0" step="1" required placeholder="0">
-                <small>% on Revised Basic Pay (Default: Nil).</small>
-            </div>
-
-        </div>
-
-        <!-- Updated Calculate Button -->
-        <button type="button" id="calculateBtnV3">
-            Calculate 8th CPC Salary
-        </button>
-    </form>
-
-    <div id="resultContainerV3" class="results-section v2" style="display: none;"> <!-- Using v2 class for base styles -->
-        <h3>Salary (8th CPC - Est. Jan 2026)</h3>
-
-        <div class="result-summary">
-             <p>Based on Pay Level: <strong id="resultLevelTextV3">N/A</strong></p>
-
-             <div class="result-block basic-input">
-                 <h4>🧾 Basic Input</h4>
-                 <div class="result-item">
-                     <span class="label">Current Basic Pay (7th CPC):</span>
-                     <span class="value" id="resultInputBasicV3">₹0</span>
-                 </div>
-                  <div class="result-item">
-                     <span class="label">Selected Fitment Factor:</span>
-                     <span class="value" id="resultFitmentFactorV3">0</span>
-                 </div>
-                 <div class="result-item highlighted">
-                     <span class="label">Revised Basic Pay (8th CPC):</span>
-                     <span class="value" id="resultRevisedBasicV3">₹0</span>
-                 </div>
-             </div>
-
-             <div class="result-block allowances">
-                 <h4>💰 Allowances (on Revised Basic)</h4>
-                 <div class="result-item">
-                     <span class="label">Dearness Allowance (<span id="resultDAInputPercentV3">0</span>%):</span>
-                     <span class="value" id="resultDAAmountV3">₹0</span>
-                 </div>
-                 <div class="result-item">
-                     <span class="label">House Rent Allowance (<span id="resultHRAInputPercentV3">0</span>%):</span>
-                     <span class="value" id="resultHRAAmountV3">₹0</span>
-                 </div>
-                 <div class="result-item">
-                     <span class="label">Transport Allowance (TA + DA on TA):</span>
-                     <span class="value" id="resultTAAmountV3">₹0</span>
-                 </div>
-                 <div class="result-item highlighted gross">
-                     <span class="label">Total Gross Salary:</span>
-                     <span class="value" id="resultGrossSalaryV3">₹0</span>
-                 </div>
-             </div>
-
-             <div class="result-block deductions">
-                 <h4>📉 Deductions (Estimated)</h4>
-                 <div class="result-item toggle-item">
-                     <label for="npsToggleV3" class="deduction-label">
-                         <input type="checkbox" id="npsToggleV3" checked>
-                         NPS Contribution (10% of Basic+DA):
-                     </label>
-                     <span class="value" id="resultNPSV3">₹0</span>
-                 </div>
-                 <div class="result-item toggle-item">
-                      <label for="cghsToggleV3" class="deduction-label">
-                         <input type="checkbox" id="cghsToggleV3" checked>
-                         CGHS/ECHS Contribution:
-                      </label>
-                     <span class="value" id="resultCGHSV3">₹0</span>
-                 </div>
-                  <div class="result-item toggle-item">
-                      <label for="taxToggleV3" class="deduction-label">
-                          <input type="checkbox" id="taxToggleV3" checked>
-                          Income Tax (New Regime FY:2025-26):
-                          <small id="resultIncomeTaxAnnualV3">(₹0 approx per annum)</small>
-                      </label>
-                     <span class="value" id="resultIncomeTaxMonthlyV3">₹0</span>
-                 </div>
-
-                 <!-- Other Deductions Section -->
-                 <div class="other-deductions-section">
-                     <h5>Other Deductions (if any)</h5>
-                     <div id="otherDeductionsContainerV3">
-                         <!-- Dynamic rows will be added here -->
-                     </div>
-                     <button type="button" id="addDeductionBtnV3" class="add-deduction-btn">Add Deduction</button>
-                 </div>
-                 <!-- End Other Deductions Section -->
-
-                 <div class="result-item highlighted deduction-total">
-                     <span class="label">Total Deductions:</span>
-                     <span class="value" id="resultTotalDeductionsV3">₹0</span>
-                 </div>
-             </div>
-
-             <div class="result-block net-salary enhanced-net">
-                 <h4>💵 Net Salary (Approx. In Hand)</h4>
-                  <div class="result-item final-net">
-                     <span class="label">Gross Salary - Total Deductions:</span>
-                     <span class="value" id="resultNetSalaryV3">₹0</span>
-                 </div>
-                 <p class="net-salary-note">This is an estimated monthly take-home pay.</p>
-             </div>
-        </div>
-
-        <!-- Chart Section Removed -->
-
-        <h4>Share Your Projection</h4>
-        <div id="shareContainerV3" class="share-buttons">
-             <p>Share this calculation easily!</p>
-             <!-- Share buttons added by JS -->
-        </div>
+    <div class="form-group">
+      <label for="payLevel">Select Pay Level (GP/AGP):</label>
+      <select id="payLevel">
+        <option value="">-- Select Level --</option>
+        <option value="1">Level 1</option>
+        <option value="2">Level 2</option>
+        <option value="3">Level 3</option>
+        <option value="4">Level 4</option>
+        <!-- Add more levels as needed -->
+      </select>
     </div>
 
-     <div id="errorContainerV3" class="error-message" style="display: none;"></div>
+    <div class="form-group">
+      <label for="basicPay">Enter Current Basic Pay (7th CPC):</label>
+      <input type="number" id="basicPay" placeholder="e.g., 50500">
+    </div>
 
-</div>
+    <div class="form-group">
+      <label for="fitment">Fitment Factor (Tentative):</label>
+      <select id="fitment">
+        <option value="2.86">2.86 (Recommended)</option>
+        <option value="2.95">2.95</option>
+        <option value="3.0">3.0</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="hra">City Type for HRA:</label>
+      <select id="hra">
+        <option value="0">No HRA</option>
+        <option value="0.24">X Class City (24%)</option>
+        <option value="0.16">Y Class City (16%)</option>
+        <option value="0.08">Z Class City (8%)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="ta">City Type for TA:</label>
+      <select id="ta">
+        <option value="0">No TA</option>
+        <option value="5400">X Class City (₹5400)</option>
+        <option value="3600">Y/Z Class City (₹3600)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="da">Assumed DA Percentage:</label>
+      <input type="number" id="da" placeholder="e.g., 38">
+    </div>
+
+    <button onclick="calculateSalary()">Calculate 8th CPC Salary</button>
+
+    <div id="result" class="result"></div>
+
+    <footer>
+      <p>🔗 Powered by <a href="https://calculatorpoint.com" target="_blank">CalculatorPoint.com</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
