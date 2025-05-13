@@ -2,7 +2,7 @@
 
 # 8th Pay Commission Salary Calculator 🇮🇳
 
-A simple and responsive web-based calculator to estimate the revised salary under India's upcoming **8th Pay Commission**. Users can input their current 7th CPC Basic Pay, select pay level, city type, DA %, HRA, and TA options to calculate the expected new basic and gross salary.
+A simple and responsive **[8th Pay Commission Salary Calculator](https://8thpaycommission.net/)** to estimate the revised salary under India’s upcoming 8th Pay Commission. Users can input their current 7th CPC Basic Pay, select pay level, city type, DA %, HRA, and TA options to calculate the expected new basic and gross salary
 
 ---
 
